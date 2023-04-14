@@ -1,18 +1,13 @@
 import { ethers } from 'ethers';
 
 import sdk from './1-initialize-sdk.js';
+import { ERCTokenAddress, gavananceAddress } from './module.js';
 
 // 投票コントラクトのアドレスを設定します
-const vote = sdk.getContract(
-  '0xB8338C5A06DAd370098CEc6aB1998f29eb3f6a0D',
-  'vote',
-);
+const vote = sdk.getContract(gavananceAddress, 'vote');
 
 // ERC-20 コントラクトのアドレスを設定します。
-const token = sdk.getContract(
-  '0x7097bC28c0fF31c31945762129C5f9D51830558D',
-  'token',
-);
+const token = sdk.getContract(ERCTokenAddress, 'token');
 
 (async () => {
   try {

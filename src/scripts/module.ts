@@ -1,3 +1,3 @@
-export const editionDropAddress = '0x83Ed6951e56543e084ee0982Bf026e64d6a13B47';
-export const ERCTokenAddress = '0x7097bC28c0fF31c31945762129C5f9D51830558D';
-export const gavananceAddress = '0xB8338C5A06DAd370098CEc6aB1998f29eb3f6a0D';
+export const editionDropAddress = '0x051300f66FD67a8B94D3d64B1e5d07f23BC90170';
+export const ERCTokenAddress = '0x238B28BaE48dA495125aE2B6623094C5f74CCAD5';
+export const gavananceAddress = '0x62e06783EA7490367f3413B79331AC328cb6e00D';
