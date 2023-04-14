@@ -36,7 +36,6 @@ const sdk = new ThirdwebSDK(
     console.log('SDK initialized by address:', address);
   } catch (err) {
     console.error('Failed to get apps from the sdk', err);
-    process.exit(1);
   }
 })();
 

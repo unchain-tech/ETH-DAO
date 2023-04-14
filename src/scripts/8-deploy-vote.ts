@@ -7,7 +7,7 @@ import sdk from './1-initialize-sdk.js';
       name: 'My amazing DAO',
 
       // ERC-20 トークンのコントラクトアドレスを設定します
-      voting_token_address: '0x10E9C13e9f73A35d4a0C8AA8328b84EF9747b7a8',
+      voting_token_address: '0x7097bC28c0fF31c31945762129C5f9D51830558D',
 
       // 以下の 2 つのパラメータはブロックチェーンのブロック数を指定します（Ethereum の場合、ブロックタイムを 13-14 秒と仮定）
       // 提案が作成された後、メンバーがすぐに投票できるよう 0 ブロックを設定する

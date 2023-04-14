@@ -4,13 +4,13 @@ import sdk from './1-initialize-sdk.js';
 
 // 投票コントラクトのアドレスを設定します
 const vote = sdk.getContract(
-  '0x78033209618617d23191130349afCF27dc640845',
+  '0xB8338C5A06DAd370098CEc6aB1998f29eb3f6a0D',
   'vote',
 );
 
 // ERC-20 コントラクトのアドレスを設定します。
 const token = sdk.getContract(
-  '0x10E9C13e9f73A35d4a0C8AA8328b84EF9747b7a8',
+  '0x7097bC28c0fF31c31945762129C5f9D51830558D',
   'token',
 );
 
@@ -41,7 +41,6 @@ const token = sdk.getContract(
     console.log('✅ Successfully created proposal to mint tokens');
   } catch (error) {
     console.error('failed to create first proposal', error);
-    process.exit(1);
   }
 
   try {

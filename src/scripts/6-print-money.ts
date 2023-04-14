@@ -2,7 +2,7 @@ import sdk from './1-initialize-sdk.js';
 
 // これは、前のステップで取得した私たちの ERC-20 コントラクトのアドレスです。
 const token = sdk.getContract(
-  '0x10E9C13e9f73A35d4a0C8AA8328b84EF9747b7a8',
+  '0x7097bC28c0fF31c31945762129C5f9D51830558D',
   'token',
 );
 

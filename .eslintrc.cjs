@@ -24,8 +24,22 @@ module.exports = {
     'node/no-missing-import': ['warn'],
     'no-lone-blocks': ['off'],
     'no-unused-vars': ['warn'],
+    'node/no-extraneous-import': [
+      'error',
+      {
+        allowModules: ['@next/env', '@ethersproject/constants'],
+      },
+    ],
   },
   settings: {
     node: { tryExtensions: ['.js', '.json', '.node', '.ts', '.d.ts'] },
   },
+  overrides: [
+    {
+      files: ['*.ts', '*.tsx'],
+      rules: {
+        'no-undef': 'off',
+      },
+    },
+  ],
 };

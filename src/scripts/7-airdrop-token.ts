@@ -2,13 +2,13 @@ import sdk from './1-initialize-sdk.js';
 
 // ERC-1155 メンバーシップの NFT コントラクトアドレス
 const editionDrop = sdk.getContract(
-  '0x78033209618617d23191130349afCF27dc640845',
+  '0x83Ed6951e56543e084ee0982Bf026e64d6a13B47',
   'edition-drop',
 );
 
 // ERC-20 トークンコントラクトのアドレス
 const token = sdk.getContract(
-  '0x10E9C13e9f73A35d4a0C8AA8328b84EF9747b7a8',
+  '0x7097bC28c0fF31c31945762129C5f9D51830558D',
   'token',
 );
 
@@ -24,7 +24,6 @@ const token = sdk.getContract(
       console.log(
         'No NFTs have been claimed yet, maybe get some friends to claim your free NFTs!',
       );
-      process.exit(0);
     }
 
     // アドレスの配列をループ
