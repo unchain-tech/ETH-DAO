@@ -10,6 +10,7 @@ import {
   editionDropAddress,
   ERCTokenAddress,
   gavananceAddress,
+  ownerWalletAddress,
 } from '../src/scripts/module.js';
 
 const { loadEnvConfig } = nextEnv;
@@ -75,8 +76,14 @@ describe('ETH-DAO test', function () {
   //     assert.equal(tokenInfo.symbol, 'TSC');
   //   });
 
-  it('token is deployed', async function () {
-    const tokenInfo = await (await token).totalSupply();
-    assert.equal(tokenInfo.displayValue, '1000000.0');
+  //   it('token is minted correctly', async function () {
+  //     const tokenInfo = await (await token).totalSupply();
+  //     assert.equal(tokenInfo.displayValue, '1000000.0');
+  //   });
+
+  it('token is transfered', async function () {
+    const balance = await (await token).balanceOf(ownerWalletAddress);
+    const fixedBalance = Number(balance.value).toString();
+    assert.equal(fixedBalance, '1e+23');
   });
 });
