@@ -70,8 +70,13 @@ describe('ETH-DAO test', function () {
   //     assert.equal(condition.price.toNumber(), 0);z
   //   });
 
-  it('token is minted correctly', async function () {
-    const tokenInfo = await (await token).balance();
-    assert.equal(tokenInfo.symbol, 'TSC');
+  //   it('token is minted correctly', async function () {
+  //     const tokenInfo = await (await token).balance();
+  //     assert.equal(tokenInfo.symbol, 'TSC');
+  //   });
+
+  it('token is deployed', async function () {
+    const tokenInfo = await (await token).totalSupply();
+    assert.equal(tokenInfo.displayValue, '1000000.0');
   });
 });
