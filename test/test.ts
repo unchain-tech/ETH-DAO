@@ -58,7 +58,10 @@ describe('ETH-DAO test', function () {
     assert.equal(metadata.fee_recipient, AddressZero);
   });
 
-  it();
+  it('NFT is minted', async function () {
+    const NFTInfo = await (await editionDrop).get(0);
+    assert.notEqual(NFTInfo, null);
+  });
 });
 
 // ここでスクリプトを実行
