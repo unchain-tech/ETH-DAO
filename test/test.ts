@@ -3,8 +3,7 @@ import nextEnv from '@next/env';
 import { ThirdwebSDK } from '@thirdweb-dev/sdk';
 import assert from 'assert';
 import ethers from 'ethers';
-import { readFileSync } from 'fs';
-import { before, describe, it } from 'node:test';
+import { describe, it } from 'node:test';
 
 import {
   editionDropAddress,
@@ -84,11 +83,25 @@ describe('ETH-DAO test', function () {
   //   it('token is transfered', async function () {
   //     const balance = await (await token).balanceOf(ownerWalletAddress);
   //     const fixedBalance = Number(balance.value).toString();
-  //     assert.equal(fixedBalance, '1e+23');
+  //     console.log(fixedBalance);
+  //     assert.equal(fixedBalance, '1e+22');
   //   });
 
-  it('vote contract is deployed', async function () {
-    const metadata = await (await vote).metadata.get();
-    assert.equal(metadata.name, 'My amazing DAO');
+  //   it('vote contract has 90 % of owners token', async function () {
+  //     const metadata = await (await vote).metadata.get();
+  //     assert.equal(metadata.name, 'My amazing DAO');
+  //   });
+
+  it('vote contract has 90 % of owners token', async function () {
+    // ウォレットのトークン残高を取得します
+    const ownedTokenBalance = (
+      await (await token).balanceOf(ownerWalletAddress)
+    ).value;
+
+    // ウォレットのトークン残高を取得します
+    const contractTokenBalance = (
+      await (await token).balanceOf((await vote).getAddress())
+    ).value;
+    assert.equal(Number(ownedTokenBalance), Number(contractTokenBalance) / 9);
   });
 });
