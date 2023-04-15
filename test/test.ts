@@ -37,10 +37,28 @@ describe('ETH-DAO test', function () {
     new ethers.Wallet(PRIVATE_KEY!, ethers.getDefaultProvider(ALCHEMY_API_URL)),
   );
 
-  it('sdk is working!', async function () {
+  // edition-drop, ERC1155-token, gavanance-tokenの3つのコントラクトを取得
+  const editionDrop = sdk.getContract(editionDropAddress, 'edition-drop');
+  const token = sdk.getContract(ERCTokenAddress, 'token');
+  const vote = sdk.getContract(gavananceAddress, 'vote');
+
+  it('sdk is working', async function () {
     const address = await sdk.getSigner()?.getAddress();
     assert.equal(address, WALLET_ADDRESS);
   });
+
+  it('metadata is set correctly', async function () {
+    // メタデータを取得
+    const metadata = await (await editionDrop).metadata.get();
+
+    // メタデータがsetされているかテスト
+    assert.notEqual(metadata, null);
+
+    // メタデータの内容の一部が一致しているかチェック
+    assert.equal(metadata.fee_recipient, AddressZero);
+  });
+
+  it();
 });
 
 // ここでスクリプトを実行
