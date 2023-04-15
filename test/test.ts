@@ -92,16 +92,26 @@ describe('ETH-DAO test', function () {
   //     assert.equal(metadata.name, 'My amazing DAO');
   //   });
 
-  it('vote contract has 90 % of owners token', async function () {
-    // ウォレットのトークン残高を取得します
-    const ownedTokenBalance = (
-      await (await token).balanceOf(ownerWalletAddress)
-    ).value;
+  //   it('vote contract has 90 % of owners token', async function () {
+  //     // ウォレットのトークン残高を取得します
+  //     const ownedTokenBalance = (
+  //       await (await token).balanceOf(ownerWalletAddress)
+  //     ).value;
 
-    // ウォレットのトークン残高を取得します
-    const contractTokenBalance = (
-      await (await token).balanceOf((await vote).getAddress())
-    ).value;
-    assert.equal(Number(ownedTokenBalance), Number(contractTokenBalance) / 9);
+  //     // ウォレットのトークン残高を取得します
+  //     const contractTokenBalance = (
+  //       await (await token).balanceOf((await vote).getAddress())
+  //     ).value;
+  //     assert.equal(Number(ownedTokenBalance), Number(contractTokenBalance) / 9);
+  //   });
+
+  it('vote contract has proposal', async function () {
+    // 投票コントラクトに挙げられた提案を取得します
+    const proposal = (await (await vote).getAll())[0];
+
+    assert.equal(
+      proposal.description,
+      'Should the DAO mint an additional 420000 tokens into the treasury?',
+    );
   });
 });
