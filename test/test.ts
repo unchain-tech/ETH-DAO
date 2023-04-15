@@ -158,4 +158,6 @@ describe('ETH-DAO test', function () {
     // adminの権限が誰にも与えられていないlことを確認する。
     assert.equal(roles.admin, [].toString());
   });
+
+  console.log('test');
 });
