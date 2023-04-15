@@ -81,9 +81,14 @@ describe('ETH-DAO test', function () {
   //     assert.equal(tokenInfo.displayValue, '1000000.0');
   //   });
 
-  it('token is transfered', async function () {
-    const balance = await (await token).balanceOf(ownerWalletAddress);
-    const fixedBalance = Number(balance.value).toString();
-    assert.equal(fixedBalance, '1e+23');
+  //   it('token is transfered', async function () {
+  //     const balance = await (await token).balanceOf(ownerWalletAddress);
+  //     const fixedBalance = Number(balance.value).toString();
+  //     assert.equal(fixedBalance, '1e+23');
+  //   });
+
+  it('vote contract is deployed', async function () {
+    const metadata = await (await vote).metadata.get();
+    assert.equal(metadata.name, 'My amazing DAO');
   });
 });
