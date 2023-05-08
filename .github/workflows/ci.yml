@@ -44,5 +44,9 @@ jobs:
         with:
           path: '**/node_modules'
           key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+      - name: Create files
+        run: touch .env.local
+      - name: Add secret values
+        run: echo -e "PRIVATE_KEY=\"${{secrets.PRIVATE_KEY}}\"\nWALLET_ADDRESS=\"${{secrets.WALLET_ADDRESS}}\"\nALCHEMY_API_URL=\"${{secrets.ALCHEMY_API_URL}}\"" > .env.local
       - name: integration_test
         run: yarn test
