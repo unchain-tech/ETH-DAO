@@ -12,29 +12,18 @@ import {
   ownerWalletAddress,
 } from '../src/scripts/module.js';
 
-const { loadEnvConfig } = nextEnv;
-// 環境変数を env ファイルから読み込む
-const { PRIVATE_KEY, ALCHEMY_API_URL, WALLET_ADDRESS } = loadEnvConfig(
-  process.cwd(),
-).combinedEnv;
-
 describe('ETH-DAO test', function () {
-  // 環境変数が取得できてとれているか確認
-  if (!PRIVATE_KEY || PRIVATE_KEY === '') {
-    // process.
-    throw new Error('🛑 Private key not found.');
-  }
-
-  if (!ALCHEMY_API_URL || ALCHEMY_API_URL === '') {
-    throw new Error('🛑 Alchemy API URL not found.');
-  }
-
-  if (!WALLET_ADDRESS || WALLET_ADDRESS === '') {
-    throw new Error('🛑 Wallet Address not found.');
-  }
+  // テスト用のウォレットを作成
+  const demoWallet = ethers.Wallet.createRandom();
+  // テスト用のPublic RPC Endpointを設定
+  // 参照：https://docs.alchemy.com/docs/choosing-a-web3-network#sepolia-testnet
+  const demoAlchemyRPCEndpoint = 'https://eth-sepolia.g.alchemy.com/v2/demo';
 
   const sdk = new ThirdwebSDK(
-    new ethers.Wallet(PRIVATE_KEY!, ethers.getDefaultProvider(ALCHEMY_API_URL)),
+    new ethers.Wallet(
+      demoWallet.privateKey,
+      ethers.getDefaultProvider(demoAlchemyRPCEndpoint),
+    ),
   );
 
   // 1-initialize-sdk.tsのテスト
@@ -43,7 +32,7 @@ describe('ETH-DAO test', function () {
     const address = await sdk.getSigner()?.getAddress();
 
     // sdkを初期化したアドレスが自分のウォレットアドレスと一致しているか確認
-    assert.equal(address, WALLET_ADDRESS);
+    assert.equal(address, demoWallet.address);
   });
 
   // edition-drop, ERC1155-token, gavanance-tokenの3つのコントラクトを取得
