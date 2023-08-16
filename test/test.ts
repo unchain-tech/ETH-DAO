@@ -16,6 +16,7 @@ describe('ETH-DAO test', function () {
   // テスト用のウォレットを作成
   const demoWallet = ethers.Wallet.createRandom();
   // テスト用のPublic RPC Endpointを設定
+  // 参照：https://docs.alchemy.com/docs/choosing-a-web3-network#sepolia-testnet
   const demoAlchemyRPCEndpoint = 'https://eth-sepolia.g.alchemy.com/v2/demo';
 
   const sdk = new ThirdwebSDK(
