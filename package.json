@@ -5,7 +5,8 @@
   "license": "UNLICENSED",
   "type": "module",
   "dependencies": {
-    "@thirdweb-dev/react": "^3.9.0",
+    "@thirdweb-dev/chains": "^0.1.48",
+    "@thirdweb-dev/react": "^3.14.37",
     "@thirdweb-dev/sdk": "^3.9.0",
     "ethers": "^5.7.2",
     "mocha": "^10.2.0",
