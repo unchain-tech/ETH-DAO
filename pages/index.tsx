@@ -1,6 +1,5 @@
 import { AddressZero } from '@ethersproject/constants';
 import { Sepolia } from '@thirdweb-dev/chains';
-// 接続中のネットワークを取得するため useNetwork を新たにインポートします。
 import {
   ConnectWallet,
   useAddress,
@@ -221,7 +220,7 @@ const Home: NextPage = () => {
   // テストネットが Sepolia ではなかった場合に警告を表示
   else if (chain && chain.chainId !== Sepolia.chainId) {
     console.log('wallet address: ', address);
-    console.log(`chain: ${chain.chainId}, ${chain.name}`);
+    console.log('chain name: ', chain.name);
 
     return (
       <div className={styles.container}>

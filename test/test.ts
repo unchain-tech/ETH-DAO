@@ -1,5 +1,4 @@
 import { AddressZero } from '@ethersproject/constants';
-import nextEnv from '@next/env';
 import { ThirdwebSDK } from '@thirdweb-dev/sdk';
 import assert from 'assert';
 import ethers from 'ethers';
