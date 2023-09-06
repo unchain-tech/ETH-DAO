@@ -9,7 +9,7 @@ import {
   ERCTokenAddress,
   gavananceAddress,
   ownerWalletAddress,
-} from '../src/scripts/module.js';
+} from '../scripts/module';
 
 describe('ETH-DAO test', function () {
   // テスト用のウォレットを作成

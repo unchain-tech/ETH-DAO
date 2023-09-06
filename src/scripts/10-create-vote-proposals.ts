@@ -1,7 +1,7 @@
 import { ethers } from 'ethers';
 
-import sdk from './1-initialize-sdk.js';
-import { ERCTokenAddress, gavananceAddress } from './module.js';
+import sdk from './1-initialize-sdk';
+import { ERCTokenAddress, gavananceAddress } from './module';
 
 // 投票コントラクトのアドレスを設定します
 const vote = sdk.getContract(gavananceAddress, 'vote');

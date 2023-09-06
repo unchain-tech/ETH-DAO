@@ -1,5 +1,5 @@
-import sdk from './1-initialize-sdk.js';
-import { editionDropAddress, ERCTokenAddress } from './module.js';
+import sdk from './1-initialize-sdk';
+import { editionDropAddress, ERCTokenAddress } from './module';
 
 // ERC-1155 メンバーシップの NFT コントラクトアドレス
 const editionDrop = sdk.getContract(editionDropAddress, 'edition-drop');

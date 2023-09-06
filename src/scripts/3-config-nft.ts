@@ -1,7 +1,7 @@
 import { readFileSync } from 'fs';
 
-import sdk from './1-initialize-sdk.js';
-import { editionDropAddress } from './module.js';
+import sdk from './1-initialize-sdk';
+import { editionDropAddress } from './module';
 
 // 先ほどメモして残していた editionDrop のコントラクトアドレスをこちらに記載してください
 const editionDrop = sdk.getContract(editionDropAddress, 'edition-drop');

@@ -1,5 +1,5 @@
-import sdk from './1-initialize-sdk.js';
-import { ERCTokenAddress } from './module.js';
+import sdk from './1-initialize-sdk';
+import { ERCTokenAddress } from './module';
 
 // これは、前のステップで取得した私たちの ERC-20 コントラクトのアドレスです。
 const token = sdk.getContract(ERCTokenAddress, 'token');
