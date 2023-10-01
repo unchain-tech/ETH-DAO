@@ -109,7 +109,7 @@ SDK initialized by address: 0x8cB688A30D5Fd6f2e5025d8915eD95e770832933
 Done in 50.84s.
 ```
 
-この中の`Successfully deployed vote contract, address:`に続くコントラクトアドレスを`src/scripts/modules.ts`の gavananceAddress 変数に代入します。
+この中の`Successfully deployed vote contract, address:`に続くコントラクトアドレスを`src/scripts/modules.ts`の governanceAddress 変数に代入します。
 
 投票の詳細設定を行なっていきます。
 
