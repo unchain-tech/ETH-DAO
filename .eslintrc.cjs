@@ -32,7 +32,9 @@ module.exports = {
     ],
   },
   settings: {
-    node: { tryExtensions: ['.js', '.json', '.node', '.ts', '.d.ts'] },
+    node: {
+      tryExtensions: ['.js', '.json', '.node', '.ts', '.d.ts'],
+    },
   },
   overrides: [
     {

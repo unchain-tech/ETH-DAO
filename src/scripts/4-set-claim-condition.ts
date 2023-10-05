@@ -1,7 +1,7 @@
 import { MaxUint256 } from '@ethersproject/constants';
 
-import sdk from './1-initialize-sdk.js';
-import { editionDropAddress } from './module.js';
+import sdk from './1-initialize-sdk';
+import { editionDropAddress } from './module';
 
 const editionDrop = sdk.getContract(editionDropAddress, 'edition-drop');
 
