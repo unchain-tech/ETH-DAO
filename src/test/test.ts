@@ -1,4 +1,5 @@
 import { AddressZero } from '@ethersproject/constants';
+import nextEnv from '@next/env';
 import { ThirdwebSDK } from '@thirdweb-dev/sdk';
 import assert from 'assert';
 import ethers from 'ethers';
@@ -12,16 +13,22 @@ import {
 } from '../scripts/module';
 
 describe('ETH-DAO test', function () {
+  // 環境変数を env ファイルから読み込む
+  const { loadEnvConfig } = nextEnv;
+  const { ALCHEMY_RPC_ENDPOINT } = loadEnvConfig(process.cwd()).combinedEnv;
+
+  // ALCHEMY_RPC_ENDPOINTが取得できなかった場合、エラーを出力して終了
+  if (!ALCHEMY_RPC_ENDPOINT || ALCHEMY_RPC_ENDPOINT === '') {
+    throw new Error('🛑 Alchemy RPC Endpoint not found.');
+  }
+
   // テスト用のウォレットを作成
   const demoWallet = ethers.Wallet.createRandom();
-  // テスト用のPublic RPC Endpointを設定
-  // 参照：https://docs.alchemy.com/docs/choosing-a-web3-network#sepolia-testnet
-  const demoAlchemyRPCEndpoint = 'https://eth-sepolia.g.alchemy.com/v2/demo';
 
   const sdk = new ThirdwebSDK(
     new ethers.Wallet(
       demoWallet.privateKey,
-      ethers.getDefaultProvider(demoAlchemyRPCEndpoint),
+      ethers.getDefaultProvider(ALCHEMY_RPC_ENDPOINT),
     ),
   );
 
