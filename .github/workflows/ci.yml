@@ -45,5 +45,5 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
       - name: integration_test
         env:
-          ALCHEMY_RPC_ENDPOINT: ${{ vars.ALCHEMY_RPC_ENDPOINT }}
+          ALCHEMY_RPC_ENDPOINT: ${{ secrets.ALCHEMY_RPC_ENDPOINT }}
         run: yarn test
