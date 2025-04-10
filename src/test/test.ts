@@ -51,6 +51,10 @@ describe('ETH-DAO test', function () {
     // メタデータを取得
     const metadata = await (await editionDrop).metadata.get();
 
+    console.log('metadata:', metadata);
+    console.log('metadata.fee_recipient:', metadata.fee_recipient);
+    console.log('AddressZero:', AddressZero);
+
     // メタデータがsetされているかテスト
     assert.notEqual(metadata, null);
 
@@ -75,6 +79,7 @@ describe('ETH-DAO test', function () {
     ).erc1155.claimConditions.getActive('0');
 
     // 条件として与えられたものの一つであるNFTの価格が0であることを確認する
+    console.log('condition.price:', condition.price.toNumber());
     assert.equal(condition.price.toNumber(), 0);
   });
 
@@ -114,6 +119,7 @@ describe('ETH-DAO test', function () {
     const metadata = await (await vote).metadata.get();
 
     // 投票コントラクトに正しく情報が入っているか確認
+    console.log('My amazing DAO:', metadata.name);
     assert.equal(metadata.name, 'My amazing DAO');
   });
 
@@ -138,6 +144,8 @@ describe('ETH-DAO test', function () {
     // 投票コントラクトに挙げられた提案を取得します
     const proposal = (await (await vote).getAll())[0];
 
+    console.log('proposal:', proposal);
+    console.log('proposal.description:', proposal.description);
     // 投票コントラクトへ提案がされているか確認する
     assert.equal(
       proposal.description,
